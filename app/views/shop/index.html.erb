@@ -1,0 +1,11 @@
+<h1>Welcome to my knife shop!</h1>
+
+<h2>Available Products:</h2>
+<table>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= link_to "details", product %>
+		</tr>
+	<% end %>
+</table>

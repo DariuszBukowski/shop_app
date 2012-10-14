@@ -4,5 +4,6 @@ class ShopController < ApplicationController
 
     def index
         @products = Product.all
+        render :text => "hello in my shop"
     end
 end
