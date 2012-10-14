@@ -3,6 +3,7 @@ class ShopController < ApplicationController
     end
 
     def index
+    	@categories = Category.all
         @products = Product.all
     end
 end

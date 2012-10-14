@@ -13,6 +13,7 @@ ShopApp::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :categories
   resources :products
 
   # Sample resource route with options:
