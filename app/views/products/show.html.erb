@@ -1,4 +1,6 @@
+<%= render "shared/cart" %>
 <h3><%= @product.name %></h3>
 <b>Price: </b>$<%= @product.price/100.0 %><br>
-<b>Description: </b><p><%= @product.description %></p>
+<b>Description: </b><p><%= @product.description %></p><br>
+<%= button_to "Add to cart", :controller => 'orders', :action => 'add_item', :id => @product.id %><br>
 <%= link_to 'Back', :back %>

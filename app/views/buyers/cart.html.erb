@@ -1,0 +1,20 @@
+<h1>Your cart</h1>
+<table>
+	<tr>
+			<td><b>Product</b></td>
+			<td><b>Quantity</b></td>
+			<td><b>Price</b>
+	</tr>
+	<% @cart.order_items.each do |order_item| %>
+		<tr>
+			<td><%= order_item.product.name %></td>
+			<td><%= order_item.quantity %></td>
+			<td><%= order_item.price / 100.0 %>
+			<% @price += order_item.price %>	
+		</tr>
+	<% end %>
+</table>
+<br>
+<% if @cart.order_items != [] %>
+	<b>Total: </b><%= @price / 100.0 %>
+<% end %>

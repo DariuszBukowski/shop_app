@@ -6,6 +6,8 @@ ShopApp::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
+  match "/cart" => "buyers#cart", as: "cart"
+
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
@@ -13,6 +15,9 @@ ShopApp::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  resources :orders do
+    post 'add_item', :on => :collection
+  end
   resources :categories
   resources :products
 
@@ -51,6 +56,7 @@ ShopApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  
   root :to => 'shop#index'
 
   # See how all your routes lay out with "rake routes"
