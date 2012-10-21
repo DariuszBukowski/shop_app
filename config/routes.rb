@@ -16,7 +16,11 @@ ShopApp::Application.routes.draw do
   #   resources :products
 
   resources :orders do
-    post 'add_item', :on => :collection
+    collection do
+      post 'finalize'
+      post 'add_item'
+      get 'confirm'
+    end
   end
   resources :categories
   resources :products

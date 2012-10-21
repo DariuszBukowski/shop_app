@@ -1,7 +1,4 @@
 class OrdersController < ApplicationController
-	def show
-		render :text => "cos"
-   	end
 
    	def add_item
    		product = Product.find(params[:id])
@@ -16,4 +13,23 @@ class OrdersController < ApplicationController
    		end
    		redirect_to '/cart/'
    	end
+
+   	def confirm
+   		@buyer = current_buyer
+         if @buyer.first_name and @buyer.last_name
+            order = cart_order
+            order.confirmed = true
+            order.update_attributes(params[:order])
+            render :action => 'finalize'
+         end
+   	end
+
+      def finalize
+         @buyer = current_buyer
+         if @buyer.update_attributes(params[:buyer])
+            order = cart_order
+            order.confirmed = true
+            order.update_attributes(params[:order])
+         end
+      end
 end

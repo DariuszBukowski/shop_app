@@ -1,0 +1,9 @@
+<%= form_for @buyer, :url => url_for(:controller => 'orders', :action => "finalize" ), :method => "POST" do |f| %>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <br><br>
+    <%= f.submit "Finalize" %>
+<% end %>

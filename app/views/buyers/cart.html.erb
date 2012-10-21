@@ -1,5 +1,8 @@
 <h1>Your cart</h1>
-<table>
+<% if @cart.order_items == [] %>
+	<p>Your cart is currently empty.</p>
+<% else %>
+	<table>
 	<tr>
 			<td><b>Product</b></td>
 			<td><b>Quantity</b></td>
@@ -9,12 +12,11 @@
 		<tr>
 			<td><%= order_item.product.name %></td>
 			<td><%= order_item.quantity %></td>
-			<td><%= order_item.price / 100.0 %>
+			<td>$<%= order_item.price / 100.0 %>
 			<% @price += order_item.price %>	
 		</tr>
 	<% end %>
-</table>
-<br>
-<% if @cart.order_items != [] %>
-	<b>Total: </b><%= @price / 100.0 %>
+	</table><br>
+	<b>Total: </b>$<%= @price / 100.0 %><br>
+	<%= link_to 'Confirm', :controller => 'orders', :action => 'confirm' %>
 <% end %>
