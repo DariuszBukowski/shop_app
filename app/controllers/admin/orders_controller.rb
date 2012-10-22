@@ -1,5 +1,5 @@
 class Admin::OrdersController < Admin::AdminController
 	def index
-		#render :text => "admin panel"
+		@orders = Order.where(:confirmed => true)
 	end
 end

@@ -1,1 +1,14 @@
-<p>Hello to admin panel</p>
+<%= render "shared/menu" %>
+
+<h3>Confirmed orders:</h3>
+<dl>
+<% @orders.each do |order| %>
+	<dt><b>Buyer: </b><%= order.buyer.first_name + " " + order.buyer.last_name %></dt>
+		<% sum = 0 %>
+		<% order.order_items.each do |orderItem| %>
+			<dd>- <%= orderItem.quantity.to_s + " x " + orderItem.product.name + " ($" + (orderItem.price / 100.0).to_s + ")" %> </dd>
+			<% sum += orderItem.price %>
+		<% end %>
+		<dd><b>Total: </b>$<%= sum / 100.0 %></dd>
+<% end %>
+</dl>

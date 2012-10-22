@@ -1,0 +1,15 @@
+<%= render "shared/menu" %>
+<h3>Products</h3>
+<table>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= link_to "Edit", edit_admin_product_path(product), :method => :get %></td>
+			<td><%= link_to "Delete", admin_product_path(product), :method => :delete %></td>
+		</tr>	  
+	<% end %>
+</table>
+<br>
+<div id="notice"><%= notice %></div>
+<br>
+<%= link_to "New product", new_admin_product_path %>

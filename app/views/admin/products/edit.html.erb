@@ -1,0 +1,15 @@
+<%= form_for [:admin, @product] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+    <br>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <br>
+    <%= f.label :category %>
+    <%= select(:product, :category_id, Category.all.collect {|category| [category.name, category.id]}) %>
+    <br><br>
+    <%= f.submit %>
+<% end %>
