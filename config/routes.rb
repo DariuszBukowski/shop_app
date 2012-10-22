@@ -61,9 +61,7 @@ ShopApp::Application.routes.draw do
 
   namespace :admin do
     devise_for :admin_users
-    resources :categories do
-      post "edit"
-    end
+    resources :categories
     resources :products
     root :to => "orders#index"
   end
