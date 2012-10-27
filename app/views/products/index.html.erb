@@ -1,0 +1,13 @@
+<%= render "shared/cart" %>
+<h3>Matching products:</h3>
+
+<table>
+	<% @result.each do |product| %>
+		<tr>
+			<td><%= product.name %></td>
+			<td><%= link_to "details", product %>
+		</tr>
+	<% end %>
+</table>
+<br>
+<%= link_to 'Back to main page', root_path %>

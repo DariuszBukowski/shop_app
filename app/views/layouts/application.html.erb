@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ShopApp</title>
+  <title>Knife Shop</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h4>Search products:</h4>
+  <%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.text_field :name_cont %>
+  <br>
+  <%= f.label :description_cont %>
+  <%= f.text_field :description_cont %>
+  <br>
+  <%= f.label :price_gteq, 'Price greater than or equal to (in ¢)' %>
+  <%= f.text_field :price_gteq %>
+  <br>
+  <%= f.label :price_lteq, 'Price less than or equal to (in ¢)' %>
+  <%= f.text_field :price_lteq %>
+  <br>
+  <%= f.submit %>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

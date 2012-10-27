@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class OrdersController < ShopController
 
    	def add_item
    		product = Product.find(params[:id])

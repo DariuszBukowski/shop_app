@@ -1,6 +1,10 @@
 class ShopController < ApplicationController
-    def new
-    end
+	before_filter :init_search_variables
+
+	def init_search_variables
+	  	@q = Product.search(params[:q])
+	  	@result = @q.result(:distinct => true)
+	end
 
     def index
     	@categories = Category.all

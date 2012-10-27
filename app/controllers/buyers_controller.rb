@@ -1,4 +1,4 @@
-class BuyersController < ApplicationController
+class BuyersController < ShopController
 	def cart
 		@cart = cart_order
 		@price = 0
